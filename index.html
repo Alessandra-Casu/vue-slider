@@ -5,10 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+    <title>Vue-slider</title>
 </head>
 <body>
+
+    <div class="container">
+        <!-- abbiamo legato la nostra applicazone a quest'area qui: slider -->
+        <div class="slider">
+            <div class="carousel">
+                <div class="highlighted">
+                    
+                    <!-- e una classe il cui valore dipende da una variabile  -->
+                    <!-- in particolare c'è la classe active che viene aggiunta se la condizione è vera, non viene inserita se la condizione è falsa -->
+                    <!-- per la classe dinamica, cioè inserita condizionalmente, utilizziamo la notazione ad oggetti che dice: -->
+                        <!-- crea un oggetto  dagli come chiave il nome della classe (active) e dagli come valore la condizione  -->
+                        <!-- se la condizione è vera la classe viene aggiunta altrimenti no -->
+                        <!-- con il ciclo FOR inve ad ogni iterazioe si crea una variabile slide -->
+                    <div 
+                        v-for="(slide, i) in arrImages" 
+                        class="slide" 
+                        :class = "{ active: i == activeIndex }"
+                    >    
+                        
+                        <img :src="slide.image" :alt="slide.title">
+                        <div class="contents">
+                            <h2>{{slide.title}}</h2>
+                            <p>{{slide.text}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- div con le miniature -->
+                <div class="thumbs">
+                    <i></i>
+                    <i></i>
+
+                    <div class="thumbs-imgs">
+                        <img src="" alt="">
+                    </div>
+
+                </div>
+            </div>
+
+            <button></button>
+            <button></button>
+
+            
+        </div>
+        
+    </div>
+    
+
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="js/script.jss"></script>
+   <script src="js/script.js"></script>
 </body>
 </html>
